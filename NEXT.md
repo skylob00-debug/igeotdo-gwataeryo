@@ -1,6 +1,6 @@
 # 이어서 하기
 
-마지막 작업: 2026-09-19
+마지막 작업: 2026-09-21
 다시 시작할 때 이 파일부터 읽는다. 자세한 배경은 `plan.txt`.
 
 ---
@@ -22,40 +22,24 @@
 
 ## 바로 할 일 (순서대로)
 
-### 1. GitHub 저장소 + Pages — 처리방침 주소 확보
-
-스토어 등록에 **개인정보 처리방침 URL이 필수**다. 이게 없으면 시작을 못 한다.
-
-먼저 `docs/` 의 노란색 표시 세 곳을 채운다.
-
-| 파일 | 채울 것 |
-|---|---|
-| `docs/privacy.html` | 시행일 |
-| `docs/privacy.html` | 개인정보 보호책임자 성명 · 이메일 |
-| `docs/index.html` | 맨 아래 문의처 |
-
-> 이메일은 스토어와 방침에 공개된다. 앱 전용으로 하나 만드는 편이 낫다.
-
-그다음 GitHub 에 올린다 (저장소는 사장님이 관리).
-
-```bash
-cd C:/Users/USER/DEV/APP/app3
-git init
-git add .
-git commit -m "이것도 과태료? 초기 커밋"
-git branch -M main
-git remote add origin https://github.com/<아이디>/<저장소>.git
-git push -u origin main
-```
-
-저장소는 **public**, 그다음 `Settings → Pages → Source` 를 **`main` 브랜치의 `/docs`**.
+### 1. ~~GitHub 저장소 + Pages~~ — 끝났다 (2026-09-21)
 
 ```
-방침 주소  https://<아이디>.github.io/<저장소>/privacy.html
+소개   https://skylob00-debug.github.io/igeotdo-gwataeryo/
+방침   https://skylob00-debug.github.io/igeotdo-gwataeryo/privacy.html
 ```
 
-**올리기 전 확인**: `.gitignore` 가 `.env`, `*.jks`, `key.properties`,
-`app/env.json` 을 막고 있다. `git status` 에 이것들이 안 보이는지 눈으로 본다.
+**방침 주소가 스토어 등록에 들어간다.** 저장소 `skylob00-debug/igeotdo-gwataeryo` (public),
+Pages 는 `main` 브랜치의 `/docs`. 최상단에 같은 파일을 올리면 안 된다 — 지웠다.
+
+채운 값: 시행일 2026년 9월 20일 / 보호책임자 이해진 /
+문의 `igeotdogwataeryo@gmail.com` (앱 전용 계정, 스토어에도 이 주소를 쓴다).
+
+방침을 고치면 `docs/` 를 고쳐 push 하면 몇 분 뒤 반영된다.
+`store.md` 7절 전문도 같은 내용이라 **같이 고친다.**
+
+커밋 신원은 이 저장소에만 따로 걸어 뒀다 (`git config user.email`).
+전역 설정은 비어 있으니 다른 저장소에서 커밋하려면 그때 또 정해야 한다.
 
 ### 2. Play 개발자 계정
 
@@ -74,7 +58,7 @@ git push -u origin main
 | 스크린샷 6장 | `design/store/01~06*.png` |
 | 그래픽 이미지 | `design/store/feature.png` |
 | 앱 아이콘 512 | `app/assets/brand/icon.png` |
-| 개인정보 처리방침 URL | 1번에서 받은 주소 |
+| 개인정보 처리방침 URL | `https://skylob00-debug.github.io/igeotdo-gwataeryo/privacy.html` |
 | 데이터 보안 양식 | `store.md` 8절 — **사실대로. 틀리면 등록 취소** |
 | 콘텐츠 등급 | 설문. 전체 이용가로 통과할 내용 |
 
