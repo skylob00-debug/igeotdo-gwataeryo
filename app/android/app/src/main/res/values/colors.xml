@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#B4470F</color>
+    <!-- lib/core/theme.dart 의 AppColors.paper 와 같은 값 -->
+    <color name="app_background">#FFFDF9</color>
+</resources>

@@ -1,0 +1,428 @@
+{
+  "_설명": [
+    "생활 과태료(폐기물관리법 시행령 별표 8)에 보여줄 문구.",
+    "구조는 curation.json 과 같다. concepts + rows.",
+    "",
+    "별표 8 은 89개 행위 중 대부분이 폐기물처리업자·검사기관·분석전문기관 대상이다.",
+    "일반 시민이 걸릴 수 있는 것은 7가지뿐이다. 거기에 문구를 공들이고",
+    "나머지는 사실만 짧게 적는다. audience 로 갈라 홈 피드에는 resident 만 낸다.",
+    "",
+    "대상을 가를 때 조문을 반드시 확인했다. 표만 보면 틀린다.",
+    "  사목 2)·3) 은 원문에 '(사업활동과 관련하여 배출하는 경우로 한정한다)' 가 있다",
+    "  자목의 법 제15조의2 는 '음식물류 폐기물 배출자의 의무' 이고,",
+    "  대상은 대통령령으로 정하는 다량 배출자다. 일반 가정이 아니다",
+    "",
+    "audience  resident 살면서 누구나 / operator 폐기물 처리·배출 사업자",
+    "awareness '몰랐을 가능성' 0~100. 사업자 조항은 낮게 잡는다 — 모르는 게 아니라",
+    "          업으로 하는 사람이 지켜야 할 의무다.",
+    "",
+    "금액이 같은 행만 한 개념으로 묶는다. 다르면 나눈다.",
+    "(publish 가 같은 개념 안의 금액 충돌을 거부한다)",
+    "금액은 여기서 손대지 않는다. 별표에서만 온다."
+  ],
+
+  "concepts": {
+    "litter-handheld": {
+      "title": "담배꽁초·휴지 버리기",
+      "summary": "들고 있던 담배꽁초나 휴지를 길에 버리면 과태료입니다. 가장 많이 걸리는 항목이고, 재떨이 없는 곳에서 무심코 하기 쉽습니다.",
+      "subcategory": "무단투기", "awareness": 45, "audience": "resident"
+    },
+    "litter-bag": {
+      "title": "봉지에 담아 버리고 가기",
+      "summary": "비닐봉지나 보자기에 쓰레기를 담아 길가·전봇대 옆에 두고 가면 손에 든 것을 버린 것보다 무겁게 봅니다.",
+      "subcategory": "무단투기", "awareness": 70, "audience": "resident"
+    },
+    "litter-outing": {
+      "title": "나들이 쓰레기 두고 오기",
+      "summary": "캠핑·등산·피서 중에 생긴 쓰레기를 두고 오는 경우입니다. 담배꽁초와 달리 금액이 네 배입니다.",
+      "subcategory": "무단투기", "awareness": 72, "audience": "resident"
+    },
+    "litter-vehicle": {
+      "title": "차에 싣고 가서 버리기",
+      "summary": "차나 손수레로 쓰레기를 실어다 버리면 크게 올라갑니다. 양이 많고 고의로 본다는 뜻입니다.",
+      "subcategory": "무단투기", "awareness": 55, "audience": "resident"
+    },
+    "waste-bury": {
+      "title": "쓰레기를 땅에 묻기",
+      "summary": "생활쓰레기를 땅에 묻는 것도 과태료입니다. 내 땅이어도 허가받은 매립시설이 아니면 안 됩니다.",
+      "subcategory": "무단투기", "awareness": 78, "audience": "resident"
+    },
+    "waste-burn": {
+      "title": "쓰레기를 태우기",
+      "summary": "생활쓰레기를 태우면 과태료입니다. 농촌에서 흔하지만 소각시설이 아닌 곳에서 태우는 것은 금지돼 있습니다.",
+      "subcategory": "무단투기", "awareness": 68, "audience": "resident"
+    },
+    "discharge-household": {
+      "title": "정해진 방법대로 내놓지 않기",
+      "summary": "집에서 나온 쓰레기를 조례가 정한 방법대로 내놓지 않거나, 종류별로 나눠 보관하지 않은 경우입니다. 배출 방법은 사는 곳 조례로 정합니다.",
+      "subcategory": "배출·분리수거", "awareness": 80, "audience": "resident"
+    },
+    "discharge-tenant": {
+      "title": "입주 사업자가 따로 내놓기",
+      "summary": "한 건물이나 부지에 입주한 사업자가 사업활동으로 나온 폐기물을 개별적으로 잘못 배출한 경우입니다. 주거생활에서 나온 것은 해당하지 않습니다.",
+      "subcategory": "배출·분리수거", "awareness": 55, "audience": "operator"
+    },
+    "discharge-tenant-shared": {
+      "title": "입주 사업자가 공동으로 잘못 내놓기",
+      "summary": "한 건물이나 부지의 입주 사업자들이 사업활동 폐기물을 함께 모아 관리하면서 배출 규정을 어긴 경우입니다.",
+      "subcategory": "배출·분리수거", "awareness": 50, "audience": "operator"
+    },
+    "foodwaste-ordinance": {
+      "title": "음식물 다량배출자 조례 준수사항 위반",
+      "summary": "음식물류 폐기물을 많이 배출하는 사업장이 지켜야 할 조례 사항을 어긴 경우입니다. 대상은 대통령령으로 정하며 일반 가정은 해당하지 않습니다.",
+      "subcategory": "음식물", "awareness": 45, "audience": "operator"
+    },
+    "litter-business": {
+      "title": "사업장 쓰레기 무단 투기·매립·소각",
+      "summary": "장사나 사업을 하면서 나온 생활폐기물을 버리거나 묻거나 태운 경우입니다. 가정에서 나온 것보다 무겁게 봅니다.",
+      "subcategory": "무단투기", "awareness": 50, "audience": "operator"
+    },
+    "order-ignore": {
+      "title": "치우라는 명령을 따르지 않음",
+      "summary": "버려진 폐기물을 치우라는 행정기관의 조치명령을 이행하지 않은 경우. 반복하면 금액이 올라갑니다.",
+      "subcategory": "행정처분", "awareness": 40, "audience": "operator"
+    },
+    "bag-sale-nocontract": {
+      "title": "계약 없이 종량제 봉투 판매",
+      "summary": "지자체와 대행계약을 맺지 않고 종량제 봉투를 판 경우입니다.",
+      "subcategory": "배출·분리수거", "awareness": 55, "audience": "operator"
+    },
+    "discharge-report": {
+      "title": "사업장 폐기물 배출 신고 누락",
+      "summary": "폐기물 배출자가 해야 할 신고를 하지 않거나 거짓으로 한 경우입니다.",
+      "subcategory": "신고·보고", "awareness": 30, "audience": "operator"
+    },
+    "foodwaste-plan": {
+      "title": "음식물 감량·처리 계획 미신고",
+      "summary": "음식물류 폐기물의 발생을 줄이고 처리하는 계획을 신고하지 않은 경우입니다.",
+      "subcategory": "음식물", "awareness": 40, "audience": "operator"
+    },
+    "foodwaste-collect": {
+      "title": "음식물 폐기물 무단 수집·재활용",
+      "summary": "신고 없이 음식물류 폐기물을 수집·운반하거나 재활용한 경우입니다.",
+      "subcategory": "음식물", "awareness": 35, "audience": "operator"
+    },
+    "sitewaste-confirm": {
+      "title": "사업장폐기물 확인 절차 누락",
+      "summary": "폐기물을 처리하기 전에 해야 할 확인을 하지 않은 경우입니다.",
+      "subcategory": "사업장폐기물", "awareness": 30, "audience": "operator"
+    },
+    "sitewaste-report": {
+      "title": "사업장폐기물 신고 누락·거짓",
+      "summary": "사업장폐기물 배출에 관한 신고를 하지 않거나 거짓으로 한 경우입니다.",
+      "subcategory": "사업장폐기물", "awareness": 30, "audience": "operator"
+    },
+    "change-report": {
+      "title": "변경신고 없이 바꾸기",
+      "summary": "신고한 내용을 바꾸면서 변경신고를 하지 않은 경우입니다.",
+      "subcategory": "신고·보고", "awareness": 35, "audience": "operator"
+    },
+    "name-change": {
+      "title": "상호 변경확인 누락",
+      "summary": "상호를 바꾸고 변경확인을 받지 않은 경우입니다.",
+      "subcategory": "신고·보고", "awareness": 35, "audience": "operator"
+    },
+    "analysis-major": {
+      "title": "폐기물 분석기관 중대 위반",
+      "summary": "공정시험기준을 지키지 않거나, 의뢰받은 분석을 남에게 다시 맡기거나, 등록되지 않은 사람이 시험한 경우입니다.",
+      "subcategory": "분석·검사", "awareness": 25, "audience": "operator"
+    },
+    "analysis-record": {
+      "title": "분석기관 기록·인력 관리 위반",
+      "summary": "시료채취기록부와 시험기록부를 제대로 쓰지 않거나, 등록된 기술인력을 다른 분야에 쓴 경우입니다.",
+      "subcategory": "분석·검사", "awareness": 25, "audience": "operator"
+    },
+    "analysis-other": {
+      "title": "분석기관 그 밖의 준수사항 위반",
+      "summary": "위에 적히지 않은 분석전문기관 준수사항을 지키지 않은 경우입니다.",
+      "subcategory": "분석·검사", "awareness": 25, "audience": "operator"
+    },
+    "transfer-input": {
+      "title": "인계·인수 내용 입력 지연",
+      "summary": "폐기물을 넘기고 받은 내용을 기한 안에 전자정보처리프로그램(올바로)에 넣지 않은 경우입니다.",
+      "subcategory": "전자정보", "awareness": 45, "audience": "operator"
+    },
+    "transfer-number": {
+      "title": "인계번호 미고지",
+      "summary": "행정기관이 요구해도 인계번호를 알려주지 않은 경우입니다.",
+      "subcategory": "전자정보", "awareness": 30, "audience": "operator"
+    },
+    "transfer-notify": {
+      "title": "인계 관련 통보 누락",
+      "summary": "법이 정한 통보를 하지 않은 경우입니다.",
+      "subcategory": "전자정보", "awareness": 30, "audience": "operator"
+    },
+    "hazard-info-major": {
+      "title": "유해성 정보자료 미작성·미제공",
+      "summary": "폐기물의 유해성 정보자료를 작성하지 않거나 거짓으로 작성한 경우, 또는 처리를 맡은 쪽에 주지 않은 경우입니다.",
+      "subcategory": "유해성정보", "awareness": 30, "audience": "operator"
+    },
+    "hazard-info-minor": {
+      "title": "유해성 정보자료 갱신·게시 누락",
+      "summary": "중요사항이 바뀐 뒤 다시 작성하지 않거나, 다시 작성한 자료를 주지 않거나, 게시·비치하지 않은 경우입니다.",
+      "subcategory": "유해성정보", "awareness": 30, "audience": "operator"
+    },
+    "container-change": {
+      "title": "전용용기 제조 변경신고 누락",
+      "summary": "전용용기 제조업 등록사항을 바꾸면서 변경신고를 하지 않거나 거짓으로 한 경우입니다.",
+      "subcategory": "전용용기", "awareness": 25, "audience": "operator"
+    },
+    "container-major": {
+      "title": "전용용기 제조 중대 위반",
+      "summary": "등록하지 않은 시설·장비로 전용용기를 만들거나, 허위 검사결과서를 준 경우입니다.",
+      "subcategory": "전용용기", "awareness": 25, "audience": "operator"
+    },
+    "container-storage": {
+      "title": "전용용기 보관장소 위반",
+      "summary": "전용용기를 등록된 보관창고가 아닌 곳에 보관한 경우입니다.",
+      "subcategory": "전용용기", "awareness": 25, "audience": "operator"
+    },
+    "container-other": {
+      "title": "전용용기 그 밖의 준수사항 위반",
+      "summary": "위에 적히지 않은 전용용기 제조업자 준수사항을 지키지 않은 경우입니다.",
+      "subcategory": "전용용기", "awareness": 25, "audience": "operator"
+    },
+    "facility-use-report": {
+      "title": "시설 사용 개시 신고 누락",
+      "summary": "신고하지 않고 폐기물처리시설 사용을 시작한 경우입니다.",
+      "subcategory": "처리시설", "awareness": 30, "audience": "operator"
+    },
+    "inspector-major": {
+      "title": "검사기관 중대 위반",
+      "summary": "지정서에 없는 시설을 검사하거나, 검사업무를 남에게 다시 맡기거나, 등록되지 않은 사람이 검사한 경우입니다.",
+      "subcategory": "분석·검사", "awareness": 25, "audience": "operator"
+    },
+    "inspector-other": {
+      "title": "검사기관 그 밖의 준수사항 위반",
+      "summary": "위에 적히지 않은 폐기물처리시설 검사기관 준수사항을 지키지 않은 경우입니다.",
+      "subcategory": "분석·검사", "awareness": 25, "audience": "operator"
+    },
+    "facility-combustion": {
+      "title": "소각·소성로 연소조건 위반",
+      "summary": "연소실 출구온도를 규정 이상 유지하지 않거나, 연소가스를 규정 시간 이상 머무르게 하지 않은 경우입니다.",
+      "subcategory": "처리시설", "awareness": 25, "audience": "operator"
+    },
+    "facility-ash": {
+      "title": "바닥재 강열감량 기준 초과",
+      "summary": "소각 후 남은 바닥재의 강열감량이 기준을 넘은 경우입니다. 제대로 태워지지 않았다는 뜻입니다.",
+      "subcategory": "처리시설", "awareness": 25, "audience": "operator"
+    },
+    "facility-other": {
+      "title": "처리시설 관리기준 위반",
+      "summary": "중간처분시설과 재활용시설의 그 밖의 관리기준을 지키지 않거나, 매립시설 침출수 항목을 측정하지 않은 경우입니다.",
+      "subcategory": "처리시설", "awareness": 25, "audience": "operator"
+    },
+    "landfill-structure": {
+      "title": "매립시설 옹벽·제방 안정성 위반",
+      "summary": "매립시설의 옹벽과 제방이 구조적으로 안정하지 않은 경우입니다. 이 별표에서 1차 금액이 가장 높습니다.",
+      "subcategory": "처리시설", "awareness": 25, "audience": "operator"
+    },
+    "landfill-cover": {
+      "title": "매립시설 복토기준 위반",
+      "summary": "매립한 폐기물을 기준에 맞게 흙으로 덮지 않은 경우입니다.",
+      "subcategory": "처리시설", "awareness": 25, "audience": "operator"
+    },
+    "landfill-other": {
+      "title": "매립시설 그 밖의 관리기준 위반",
+      "summary": "위에 적히지 않은 매립시설 관리기준을 지키지 않은 경우입니다.",
+      "subcategory": "처리시설", "awareness": 25, "audience": "operator"
+    },
+    "facility-impact-survey": {
+      "title": "주변지역 영향조사 미실시",
+      "summary": "처리시설 주변지역에 대한 영향조사를 하지 않은 경우입니다. 횟수와 상관없이 1,000만원입니다.",
+      "subcategory": "처리시설", "awareness": 25, "audience": "operator"
+    },
+    "tech-manager": {
+      "title": "기술관리인 미임명",
+      "summary": "기술관리인을 두지 않거나 기술관리 대행계약을 맺지 않은 경우입니다.",
+      "subcategory": "처리시설", "awareness": 30, "audience": "operator"
+    },
+    "edu-self": {
+      "title": "폐기물 교육 미이수",
+      "summary": "법이 정한 교육을 받아야 할 사람이 받지 않은 경우입니다.",
+      "subcategory": "기록·교육", "awareness": 45, "audience": "operator"
+    },
+    "edu-employee": {
+      "title": "직원 교육을 시키지 않음",
+      "summary": "교육 대상자를 고용한 사업주가 그 사람에게 교육을 받게 하지 않은 경우입니다.",
+      "subcategory": "기록·교육", "awareness": 45, "audience": "operator"
+    },
+    "ledger": {
+      "title": "장부 미기록·거짓기록",
+      "summary": "폐기물 처리에 관한 장부를 쓰지 않거나 보관하지 않거나 거짓으로 쓴 경우입니다.",
+      "subcategory": "기록·교육", "awareness": 35, "audience": "operator"
+    },
+    "ledger-input": {
+      "title": "장부기록사항 입력 지연",
+      "summary": "장부에 쓸 내용을 기한 안에 전자정보처리프로그램에 넣지 않거나 부실하게 넣은 경우입니다.",
+      "subcategory": "기록·교육", "awareness": 40, "audience": "operator"
+    },
+    "close-report-major": {
+      "title": "폐기물처리업자 휴·폐업 신고 누락",
+      "summary": "폐기물처리업자가 휴업·폐업·재개업 신고를 하지 않은 경우입니다.",
+      "subcategory": "신고·보고", "awareness": 30, "audience": "operator"
+    },
+    "close-report-etc": {
+      "title": "그 밖의 사업자 휴·폐업 신고 누락",
+      "summary": "폐기물처리 신고자, 분석전문기관, 전용용기 제조업자가 휴업·폐업 신고를 하지 않은 경우입니다.",
+      "subcategory": "신고·보고", "awareness": 30, "audience": "operator"
+    },
+    "report-minor": {
+      "title": "보고서 제출 지연 (경미)",
+      "summary": "정기 보고서나 보고서 작성에 필요한 자료를 기한까지 내지 않거나 거짓으로 작성해 낸 경우입니다.",
+      "subcategory": "신고·보고", "awareness": 35, "audience": "operator"
+    },
+    "report-normal": {
+      "title": "보고서 제출 지연",
+      "summary": "법 제38조에 따른 보고서를 기한까지 내지 않거나 거짓으로 작성해 낸 경우입니다.",
+      "subcategory": "신고·보고", "awareness": 35, "audience": "operator"
+    },
+    "report-order": {
+      "title": "제출명령 불이행",
+      "summary": "보고서를 내라는 명령을 따르지 않은 경우입니다.",
+      "subcategory": "신고·보고", "awareness": 30, "audience": "operator"
+    },
+    "abandoned-measures": {
+      "title": "방치폐기물 조치 불이행",
+      "summary": "방치된 폐기물에 대해 법이 정한 조치를 하지 않은 경우입니다. 횟수와 상관없이 1,000만원입니다.",
+      "subcategory": "보증·이행", "awareness": 25, "audience": "operator"
+    },
+    "insurance-renew": {
+      "title": "이행보증보험 갱신 누락",
+      "summary": "처리이행보증보험 계약을 갱신하지 않은 경우입니다.",
+      "subcategory": "보증·이행", "awareness": 30, "audience": "operator"
+    },
+    "insurance-order": {
+      "title": "계약갱신명령 불이행",
+      "summary": "보험계약을 갱신하라는 명령을 따르지 않은 경우입니다. 횟수와 상관없이 1,000만원입니다.",
+      "subcategory": "보증·이행", "awareness": 25, "audience": "operator"
+    },
+    "insurance-minor": {
+      "title": "보험증서·변경사실 미제출",
+      "summary": "보험증서 원본을 내지 않거나 변경된 사실을 알리지 않은 경우입니다.",
+      "subcategory": "보증·이행", "awareness": 30, "audience": "operator"
+    },
+    "recycler-duty": {
+      "title": "재활용 신고자 준수사항 위반",
+      "summary": "신고한 용도·방법대로 재활용하지 않거나, 능력을 넘겨 위탁받거나, 보관량·장소를 어기거나, 명의를 빌려준 경우입니다.",
+      "subcategory": "재활용", "awareness": 30, "audience": "operator"
+    },
+    "recycler-other": {
+      "title": "재활용 신고자 그 밖의 준수사항 위반",
+      "summary": "위에 적히지 않은 재활용 신고자 준수사항을 지키지 않은 경우입니다.",
+      "subcategory": "재활용", "awareness": 30, "audience": "operator"
+    },
+    "recycle-hazard": {
+      "title": "유해성기준 어긴 재활용 제품 제조",
+      "summary": "유해성기준에 맞지 않게 폐기물을 재활용한 제품이나 물질을 만든 경우입니다.",
+      "subcategory": "재활용", "awareness": 30, "audience": "operator"
+    },
+    "ban-violation": {
+      "title": "처리금지 기간에 처리 계속",
+      "summary": "처리금지 처분을 받고도 폐기물 처리를 계속한 경우입니다.",
+      "subcategory": "행정처분", "awareness": 25, "audience": "operator"
+    },
+    "import-report": {
+      "title": "폐기물 수출입 신고 누락",
+      "summary": "법 제50조에 따른 신고를 하지 않은 경우입니다.",
+      "subcategory": "신고·보고", "awareness": 25, "audience": "operator"
+    },
+    "import-report-major": {
+      "title": "폐기물 수출입 신고 누락 (중대)",
+      "summary": "법 제50조의2에 따른 신고를 하지 않은 경우입니다.",
+      "subcategory": "신고·보고", "awareness": 25, "audience": "operator"
+    }
+  },
+
+  "rows": {
+    "가목 1) 가)": "litter-handheld",
+    "가목 1) 나)": "litter-bag",
+    "가목 1) 다)": "litter-outing",
+    "가목 1) 라)": "litter-vehicle",
+    "가목 1) 마)": "litter-business",
+    "가목 2) 가)": "litter-business",
+    "가목 2) 나)": "waste-bury",
+    "가목 3) 가)": "litter-business",
+    "가목 3) 나)": "waste-burn",
+    "나목": "order-ignore",
+    "마목": "recycle-hazard",
+    "바목": "bag-sale-nocontract",
+    "사목 1)": "discharge-household",
+    "사목 2)": "discharge-tenant",
+    "사목 3)": "discharge-tenant-shared",
+    "아목": "discharge-report",
+    "자목": "foodwaste-ordinance",
+    "차목": "foodwaste-plan",
+    "카목": "foodwaste-collect",
+    "타목": "sitewaste-confirm",
+    "파목": "sitewaste-report",
+    "하목": "change-report",
+    "거목": "name-change",
+    "더목 1)": "analysis-major",
+    "더목 2)": "analysis-major",
+    "더목 3)": "analysis-major",
+    "더목 4)": "analysis-record",
+    "더목 5)": "analysis-record",
+    "더목 6)": "analysis-other",
+    "머목": "transfer-input",
+    "버목": "hazard-info-major",
+    "서목": "hazard-info-minor",
+    "어목": "hazard-info-major",
+    "저목": "hazard-info-minor",
+    "처목": "hazard-info-minor",
+    "커목": "transfer-number",
+    "터목": "transfer-notify",
+    "고목": "container-change",
+    "노목 1)": "container-major",
+    "노목 2)": "container-major",
+    "노목 3)": "container-storage",
+    "노목 4)": "container-other",
+    "도목": "facility-use-report",
+    "로목 1)": "inspector-major",
+    "로목 2)": "inspector-major",
+    "로목 3)": "inspector-major",
+    "로목 4)": "inspector-other",
+    "모목 1) 가)": "facility-combustion",
+    "모목 1) 나)": "facility-combustion",
+    "모목 1) 다)": "facility-ash",
+    "모목 1) 라)": "facility-other",
+    "모목 2)": "facility-other",
+    "모목 3) 가)": "landfill-structure",
+    "모목 3) 나)": "landfill-cover",
+    "모목 3) 다)": "landfill-other",
+    "모목 4) 가)": "facility-combustion",
+    "모목 4) 나)": "facility-combustion",
+    "모목 4) 다)": "facility-other",
+    "모목 5)": "facility-other",
+    "모목 6)": "facility-other",
+    "모목 7)": "facility-impact-survey",
+    "보목": "tech-manager",
+    "소목 1)": "edu-self",
+    "소목 2)": "edu-employee",
+    "오목": "ledger",
+    "조목": "ledger-input",
+    "초목 1)": "close-report-major",
+    "초목 2)": "close-report-etc",
+    "초목 3)": "close-report-etc",
+    "초목 4)": "close-report-etc",
+    "코목": "report-minor",
+    "토목": "report-normal",
+    "포목": "report-order",
+    "구목": "report-minor",
+    "누목": "report-normal",
+    "루목": "abandoned-measures",
+    "무목": "insurance-renew",
+    "부목": "insurance-order",
+    "수목": "insurance-minor",
+    "우목": "insurance-minor",
+    "주목 1)": "recycler-duty",
+    "주목 2)": "recycler-duty",
+    "주목 3)": "recycler-duty",
+    "주목 4)": "recycler-duty",
+    "주목 5)": "recycler-duty",
+    "주목 6)": "recycler-other",
+    "추목": "ban-violation",
+    "쿠목": "import-report",
+    "투목": "import-report-major"
+  }
+}

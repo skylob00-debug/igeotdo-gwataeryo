@@ -1,0 +1,98 @@
+{
+  "law_name": "도로교통법 시행령",
+  "mst": "283551",
+  "promulgation_date": "20260219",
+  "enforce_date": "20260801",
+  "byeolpyo": {
+    "byeolpyo6": {
+      "byeolpyo_no": "0006",
+      "branch_no": "00",
+      "title": "과태료의 부과기준(제88조제4항 본문 관련)",
+      "sha256": "03465b6f0823c41278b5a18a3080108886437d6e1344960fa36435c0cb80ce12",
+      "chars": 27443,
+      "hwp_sha256": "ca546811b2384dd55feeaf405b3bf71b817decba5deed879bcf51ccd335f9b0e"
+    },
+    "byeolpyo7": {
+      "byeolpyo_no": "0007",
+      "branch_no": "00",
+      "title": "어린이보호구역 및 노인ㆍ장애인보호구역에서의 과태료 부과기준(제88조제4항 단서 관련)",
+      "sha256": "7c487a57869f9e09ec1e1d9c71ac1ab4641e6110c09097b486ee640a0371aa40",
+      "chars": 4067,
+      "hwp_sha256": "eafa8b6adde38709f61e718bd400ee446d1475d6081837f1c1925c26105c87c8"
+    },
+    "byeolpyo8": {
+      "byeolpyo_no": "0008",
+      "branch_no": "00",
+      "title": "범칙행위 및 범칙금액(운전자)(제93조제1항 관련)",
+      "sha256": "2670a4aa15f6b12494f2d95a0b3cae89bbf5c7370e28f87fc9f97f0492e3af0b",
+      "chars": 22897,
+      "hwp_sha256": "5c3017cca8699157f377fef23a2a690633121f9d3940913378eacc7a0d33914f"
+    },
+    "byeolpyo10": {
+      "byeolpyo_no": "0010",
+      "branch_no": "00",
+      "title": "어린이보호구역 및 노인ㆍ장애인보호구역에서의 범칙행위 및 범칙금액(제93조제2항 관련)",
+      "sha256": "e478fb7f1882991239817f8dc3610289260afa243d041e719463612f921fd3a6",
+      "chars": 7286,
+      "hwp_sha256": "11331e92b17d4a1d7e3462a378384d2eca94f3a8c762f4bc1dd525e9dca96ebb"
+    }
+  },
+  "laws": {
+    "도로교통법 시행령": {
+      "law_name": "도로교통법 시행령",
+      "mst": "283551",
+      "promulgation_date": "20260219",
+      "enforce_date": "20260801",
+      "byeolpyo": {
+        "byeolpyo6": {
+          "byeolpyo_no": "0006",
+          "branch_no": "00",
+          "title": "과태료의 부과기준(제88조제4항 본문 관련)",
+          "sha256": "03465b6f0823c41278b5a18a3080108886437d6e1344960fa36435c0cb80ce12",
+          "chars": 27443,
+          "hwp_sha256": "ca546811b2384dd55feeaf405b3bf71b817decba5deed879bcf51ccd335f9b0e"
+        },
+        "byeolpyo7": {
+          "byeolpyo_no": "0007",
+          "branch_no": "00",
+          "title": "어린이보호구역 및 노인ㆍ장애인보호구역에서의 과태료 부과기준(제88조제4항 단서 관련)",
+          "sha256": "7c487a57869f9e09ec1e1d9c71ac1ab4641e6110c09097b486ee640a0371aa40",
+          "chars": 4067,
+          "hwp_sha256": "eafa8b6adde38709f61e718bd400ee446d1475d6081837f1c1925c26105c87c8"
+        },
+        "byeolpyo8": {
+          "byeolpyo_no": "0008",
+          "branch_no": "00",
+          "title": "범칙행위 및 범칙금액(운전자)(제93조제1항 관련)",
+          "sha256": "2670a4aa15f6b12494f2d95a0b3cae89bbf5c7370e28f87fc9f97f0492e3af0b",
+          "chars": 22897,
+          "hwp_sha256": "5c3017cca8699157f377fef23a2a690633121f9d3940913378eacc7a0d33914f"
+        },
+        "byeolpyo10": {
+          "byeolpyo_no": "0010",
+          "branch_no": "00",
+          "title": "어린이보호구역 및 노인ㆍ장애인보호구역에서의 범칙행위 및 범칙금액(제93조제2항 관련)",
+          "sha256": "e478fb7f1882991239817f8dc3610289260afa243d041e719463612f921fd3a6",
+          "chars": 7286,
+          "hwp_sha256": "11331e92b17d4a1d7e3462a378384d2eca94f3a8c762f4bc1dd525e9dca96ebb"
+        }
+      }
+    },
+    "폐기물관리법 시행령": {
+      "law_name": "폐기물관리법 시행령",
+      "mst": "284591",
+      "promulgation_date": "20260324",
+      "enforce_date": "20260326",
+      "byeolpyo": {
+        "waste8": {
+          "byeolpyo_no": "0008",
+          "branch_no": "00",
+          "title": "과태료의 부과기준(제38조의4 관련)",
+          "sha256": "9398921435ee42f1217bce5d4daa4cc28f9faa74d7069b54dc06eb91dbb94e03",
+          "chars": 28002,
+          "hwp_sha256": "7f2391389b752313cb8f516908dd21cd06bbbcc3aa04f6f91a73bb0d1c66eb79"
+        }
+      }
+    }
+  }
+}

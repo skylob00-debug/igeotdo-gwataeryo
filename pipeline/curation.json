@@ -1,0 +1,1079 @@
+{
+  "_설명": [
+    "앱에 보여줄 문구. 별표 원문(action)은 법문이라 그대로 읽히지 않는다.",
+    "",
+    "concepts  위반 개념. 앱 카드 하나에 대응한다.",
+    "          같은 위반이 과태료/범칙금 x 일반/보호구역으로 최대 4번 나오는데,",
+    "          한 개념으로 묶어 카드 하나에 표로 보여준다.",
+    "rows      별표 행 id -> 개념 키. 모든 행이 정확히 하나의 개념에 속해야 한다.",
+    "",
+    "awareness '몰랐을 가능성' 0~100. 홈 카드 정렬에 쓴다.",
+    "          낮음 = 다 아는 것(신호위반, 음주운전), 높음 = 잘 모르는 것",
+    "          (2시간 이상 주정차 가중, 창유리 가시광선, 동승자 안전띠 나이 기준).",
+    "",
+    "금액은 여기서 손대지 않는다. 금액은 별표에서만 온다.",
+    "문구가 법의 뜻을 바꾸면 안 된다. 원문(action)은 상세 화면에 그대로 함께 보여준다."
+  ],
+  "concepts": {
+    "speed-over-60": {
+      "title": "속도위반 (60km/h 초과)",
+      "summary": "제한속도를 60km/h 넘게 초과. 형사처벌 대상이 될 수 있는 구간입니다.",
+      "subcategory": "속도",
+      "awareness": 20,
+      "audience": "driver"
+    },
+    "speed-40-60": {
+      "title": "속도위반 (40~60km/h 초과)",
+      "summary": "제한속도를 40km/h 초과 60km/h 이하로 넘긴 경우.",
+      "subcategory": "속도",
+      "awareness": 25,
+      "audience": "driver"
+    },
+    "speed-20-40": {
+      "title": "속도위반 (20~40km/h 초과)",
+      "summary": "제한속도를 20km/h 초과 40km/h 이하로 넘긴 경우.",
+      "subcategory": "속도",
+      "awareness": 35,
+      "audience": "driver"
+    },
+    "speed-under-20": {
+      "title": "속도위반 (20km/h 이하)",
+      "summary": "제한속도를 20km/h 이하로 넘긴 경우. 단속카메라에 가장 많이 걸리는 구간입니다.",
+      "subcategory": "속도",
+      "awareness": 45,
+      "audience": "driver"
+    },
+    "speed-minimum": {
+      "title": "최저속도 위반",
+      "summary": "고속도로 등에서 정해진 최저속도보다 느리게 운행한 경우.",
+      "subcategory": "속도",
+      "awareness": 60,
+      "audience": "driver"
+    },
+    "signal": {
+      "title": "신호·지시 위반",
+      "summary": "신호등이나 경찰관의 수신호, 안전표지의 지시를 따르지 않은 경우.",
+      "subcategory": "신호",
+      "awareness": 15,
+      "audience": "driver"
+    },
+    "no-entry": {
+      "title": "통행 금지·제한 위반",
+      "summary": "통행이 금지되거나 제한된 도로를 지나간 경우.",
+      "subcategory": "통행",
+      "awareness": 50,
+      "audience": "driver"
+    },
+    "centerline": {
+      "title": "중앙선 침범·통행구분 위반",
+      "summary": "중앙선을 넘거나 정해진 통행구분을 어긴 경우.",
+      "subcategory": "통행",
+      "awareness": 15,
+      "audience": "driver"
+    },
+    "sidewalk": {
+      "title": "보도 침범",
+      "summary": "차로 인도를 침범한 경우. 범칙금은 '중앙선 침범·통행구분 위반'으로 함께 적용됩니다.",
+      "subcategory": "통행",
+      "awareness": 40,
+      "audience": "driver"
+    },
+    "safety-zone": {
+      "title": "안전지대 등 진입 금지 위반",
+      "summary": "안전표지로 진입이 금지된 안전지대에 들어간 경우. 교차로 앞 빗금 구역이 대표적입니다.",
+      "subcategory": "통행",
+      "awareness": 72,
+      "audience": "driver"
+    },
+    "lane-keeping": {
+      "title": "차로 통행 준수 위반",
+      "summary": "차로를 따라 통행하지 않거나 지정된 통행방법을 어긴 경우.",
+      "subcategory": "통행",
+      "awareness": 60,
+      "audience": "driver"
+    },
+    "lane-change-forbidden": {
+      "title": "진로 변경 금지 장소 위반",
+      "summary": "실선 등 안전표지로 진로 변경이 금지된 곳에서 차로를 바꾼 경우.",
+      "subcategory": "통행",
+      "awareness": 64,
+      "audience": "driver"
+    },
+    "lane-change-method": {
+      "title": "진로 변경방법 위반",
+      "summary": "뒤에서 정상 통행 중인 차의 진로를 방해하며 차로를 바꾼 경우.",
+      "subcategory": "통행",
+      "awareness": 60,
+      "audience": "driver"
+    },
+    "turn-signal": {
+      "title": "방향지시등 미점등",
+      "summary": "차로 변경, 회전, 회전교차로 진출입 시 신호를 하지 않은 경우.",
+      "subcategory": "통행",
+      "awareness": 76,
+      "audience": "driver"
+    },
+    "bus-lane-city": {
+      "title": "일반도로 전용차로 통행 위반",
+      "summary": "시내 버스전용차로 등 전용차로를 통행할 수 없는 차가 지나간 경우.",
+      "subcategory": "통행",
+      "awareness": 35,
+      "audience": "driver"
+    },
+    "tram-lane": {
+      "title": "노면전차 전용로 통행 위반",
+      "summary": "노면전차 전용로를 침범한 경우.",
+      "subcategory": "통행",
+      "awareness": 60,
+      "audience": "driver"
+    },
+    "cut-in": {
+      "title": "끼어들기 금지 위반",
+      "summary": "정체 중 줄 서 있는 차 사이로 끼어든 경우.",
+      "subcategory": "통행",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "slow-down": {
+      "title": "서행의무 위반",
+      "summary": "서행해야 하는 장소에서 속도를 줄이지 않은 경우.",
+      "subcategory": "통행",
+      "awareness": 68,
+      "audience": "driver"
+    },
+    "stop-required": {
+      "title": "일시정지 위반",
+      "summary": "일시정지 표지가 있는 곳에서 완전히 멈추지 않은 경우. 서행만으로는 부족합니다.",
+      "subcategory": "통행",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "congestion": {
+      "title": "혼잡 완화조치 위반",
+      "summary": "교통 혼잡 완화를 위한 통행 제한 조치를 따르지 않은 경우.",
+      "subcategory": "통행",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "u-turn": {
+      "title": "횡단·유턴·후진 위반",
+      "summary": "금지된 곳에서 횡단, 유턴, 후진을 한 경우.",
+      "subcategory": "통행",
+      "awareness": 40,
+      "audience": "driver"
+    },
+    "overtake-method": {
+      "title": "앞지르기 방법 위반",
+      "summary": "오른쪽으로 앞지르는 등 정해진 방법을 어기고 추월한 경우.",
+      "subcategory": "앞지르기",
+      "awareness": 50,
+      "audience": "driver"
+    },
+    "overtake-forbidden": {
+      "title": "앞지르기 금지 시기·장소 위반",
+      "summary": "터널, 교량, 교차로 등 앞지르기가 금지된 곳에서 추월한 경우.",
+      "subcategory": "앞지르기",
+      "awareness": 45,
+      "audience": "driver"
+    },
+    "overtake-block": {
+      "title": "앞지르기 방해 금지 위반",
+      "summary": "뒤차가 앞지르려 할 때 속도를 올려 방해한 경우.",
+      "subcategory": "앞지르기",
+      "awareness": 74,
+      "audience": "driver"
+    },
+    "safe-distance-city": {
+      "title": "일반도로 안전거리 미확보",
+      "summary": "앞차와의 거리를 충분히 두지 않은 경우.",
+      "subcategory": "통행",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "sudden-brake": {
+      "title": "급제동 금지 위반",
+      "summary": "이유 없이 갑자기 멈춰 뒤차에 위험을 준 경우.",
+      "subcategory": "통행",
+      "awareness": 70,
+      "audience": "driver"
+    },
+    "railway-crossing": {
+      "title": "철길건널목 통과방법 위반",
+      "summary": "건널목 앞에서 일시정지하지 않거나 안전을 확인하지 않은 경우.",
+      "subcategory": "교차로",
+      "awareness": 50,
+      "audience": "driver"
+    },
+    "roundabout-method": {
+      "title": "회전교차로 통행방법 위반",
+      "summary": "회전교차로에서 시계방향으로 돌거나 정해진 방법을 어긴 경우.",
+      "subcategory": "교차로",
+      "awareness": 68,
+      "audience": "driver"
+    },
+    "roundabout-entry": {
+      "title": "회전교차로 진입·진행방법 위반",
+      "summary": "회전 중인 차에 양보하지 않고 진입한 경우. 회전차가 우선입니다.",
+      "subcategory": "교차로",
+      "awareness": 64,
+      "audience": "driver"
+    },
+    "intersection-method": {
+      "title": "교차로 통행방법 위반",
+      "summary": "우회전·좌회전 방법을 어기거나 교차로에 잘못 진입한 경우.",
+      "subcategory": "교차로",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "intersection-right-turn": {
+      "title": "교차로 우회전방법 위반",
+      "summary": "우회전할 때 도로 오른쪽 가장자리를 따라 서행하지 않은 경우.",
+      "subcategory": "교차로",
+      "awareness": 68,
+      "audience": "driver"
+    },
+    "intersection-left-turn": {
+      "title": "교차로 좌회전방법 위반",
+      "summary": "좌회전할 때 교차로 중심 안쪽을 이용하지 않은 경우.",
+      "subcategory": "교차로",
+      "awareness": 68,
+      "audience": "driver"
+    },
+    "intersection-block": {
+      "title": "교차로 꼬리물기",
+      "summary": "앞이 막혔는데 교차로에 들어가 다른 차의 통행을 막은 경우.",
+      "subcategory": "교차로",
+      "awareness": 45,
+      "audience": "driver"
+    },
+    "intersection-yield": {
+      "title": "교차로 양보운전 위반",
+      "summary": "먼저 진입한 차나 폭 넓은 도로의 차에 양보하지 않은 경우.",
+      "subcategory": "교차로",
+      "awareness": 65,
+      "audience": "driver"
+    },
+    "crosswalk-pedestrian": {
+      "title": "횡단보도 보행자 횡단 방해",
+      "summary": "횡단보도를 건너는 보행자를 막거나 일시정지하지 않은 경우.",
+      "subcategory": "보행자",
+      "awareness": 30,
+      "audience": "driver"
+    },
+    "crosswalk-school-zone": {
+      "title": "어린이보호구역 횡단보도 일시정지 위반",
+      "summary": "어린이보호구역 횡단보도 앞에서는 보행자가 없어도 일시정지해야 합니다.",
+      "subcategory": "보행자",
+      "awareness": 82,
+      "audience": "driver"
+    },
+    "pedestrian-protection": {
+      "title": "보행자 통행 방해·보호 불이행",
+      "summary": "보도와 차도 구분이 없는 길 등에서 보행자 옆을 서행하지 않은 경우.",
+      "subcategory": "보행자",
+      "awareness": 65,
+      "audience": "driver"
+    },
+    "pedestrian-road": {
+      "title": "보행자전용도로 통행 위반",
+      "summary": "보행자전용도로에 차로 들어가거나 통행방법을 어긴 경우.",
+      "subcategory": "보행자",
+      "awareness": 60,
+      "audience": "driver"
+    },
+    "bicycle-crossing-stop": {
+      "title": "자전거횡단도 앞 일시정지 위반",
+      "summary": "자전거가 자전거횡단도를 건널 때 일시정지하지 않은 경우.",
+      "subcategory": "보행자",
+      "awareness": 85,
+      "audience": "driver"
+    },
+    "protect-vulnerable": {
+      "title": "어린이·장애인 보호 불이행",
+      "summary": "어린이나 앞을 보지 못하는 사람이 길에 있을 때 일시정지하지 않은 경우.",
+      "subcategory": "보행자",
+      "awareness": 70,
+      "audience": "driver"
+    },
+    "splash": {
+      "title": "물 튀김",
+      "summary": "고인 물을 튀겨 다른 사람에게 피해를 준 경우. 실제로 과태료가 부과됩니다.",
+      "subcategory": "운전 중 행위",
+      "awareness": 92,
+      "audience": "driver"
+    },
+    "no-stopping": {
+      "title": "정차·주차 금지 위반",
+      "summary": "소화전 앞, 교차로 모퉁이 등 정차·주차가 금지된 곳에 세운 경우.",
+      "subcategory": "주정차",
+      "awareness": 40,
+      "audience": "driver"
+    },
+    "no-stopping-sign": {
+      "title": "안전표지 설치 구역 정차·주차 위반",
+      "summary": "정차·주차 금지 안전표지가 따로 설치된 곳에 세운 경우. 일반 주정차 위반보다 비쌉니다.",
+      "subcategory": "주정차",
+      "awareness": 78,
+      "audience": "driver"
+    },
+    "no-parking": {
+      "title": "주차금지 위반",
+      "summary": "터널 안, 다리 위 등 주차가 금지된 곳에 세운 경우. 과태료는 '정차·주차 금지 위반'으로 함께 부과됩니다.",
+      "subcategory": "주정차",
+      "awareness": 45,
+      "audience": "driver"
+    },
+    "parking-method": {
+      "title": "정차·주차방법 위반",
+      "summary": "도로 가장자리에 붙이지 않는 등 정해진 방법을 어기고 세운 경우. 과태료는 '정차·주차 금지 위반'으로 함께 부과됩니다.",
+      "subcategory": "주정차",
+      "awareness": 60,
+      "audience": "driver"
+    },
+    "parking-slope": {
+      "title": "경사진 곳 정차·주차방법 위반",
+      "summary": "경사로에 세울 때 바퀴를 돌려놓는 등 미끄럼 방지 조치를 하지 않은 경우. 과태료는 '정차·주차 금지 위반'으로 함께 부과됩니다.",
+      "subcategory": "주정차",
+      "awareness": 90,
+      "audience": "driver"
+    },
+    "parking-order": {
+      "title": "정차·주차 위반 조치 불응",
+      "summary": "경찰의 이동 명령에 따르지 않은 경우.",
+      "subcategory": "주정차",
+      "awareness": 70,
+      "audience": "driver"
+    },
+    "seatbelt-driver": {
+      "title": "좌석안전띠 미착용",
+      "summary": "운전자 본인이 안전띠를 매지 않은 경우. 뒷좌석도 대상입니다.",
+      "subcategory": "안전띠·장구",
+      "awareness": 25,
+      "audience": "driver"
+    },
+    "seatbelt-passenger-under13": {
+      "title": "동승자 안전띠 미착용 (13세 미만)",
+      "summary": "13세 미만 동승자에게 안전띠를 매게 하지 않은 경우. 13세 이상의 2배입니다.",
+      "subcategory": "안전띠·장구",
+      "awareness": 82,
+      "audience": "driver"
+    },
+    "seatbelt-passenger-over13": {
+      "title": "동승자 안전띠 미착용 (13세 이상)",
+      "summary": "동승자에게 안전띠를 매게 하지 않으면 운전자에게 부과됩니다.",
+      "subcategory": "안전띠·장구",
+      "awareness": 70,
+      "audience": "driver"
+    },
+    "helmet-motorcycle": {
+      "title": "이륜차 인명보호장구 미착용",
+      "summary": "이륜차·원동기장치자전거 운전자가 안전모를 쓰지 않은 경우.",
+      "subcategory": "안전띠·장구",
+      "awareness": 20,
+      "audience": "driver"
+    },
+    "helmet-passenger": {
+      "title": "동승자 인명보호장구 미착용",
+      "summary": "동승자에게 안전모를 씌우지 않으면 운전자에게 부과됩니다.",
+      "subcategory": "안전띠·장구",
+      "awareness": 75,
+      "audience": "driver"
+    },
+    "helmet-pm": {
+      "title": "개인형 이동장치 인명보호장구 미착용",
+      "summary": "전동킥보드 등을 탈 때 안전모를 쓰지 않은 경우.",
+      "subcategory": "자전거·PM",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "phone-use": {
+      "title": "운전 중 휴대전화 사용",
+      "summary": "운전 중 휴대전화를 손에 들고 사용한 경우.",
+      "subcategory": "운전 중 행위",
+      "awareness": 25,
+      "audience": "driver"
+    },
+    "screen-display": {
+      "title": "운전 중 영상 표시",
+      "summary": "운전자가 볼 수 있는 위치에 영상을 띄운 경우. 내비게이션 외 영상은 금지입니다.",
+      "subcategory": "운전 중 행위",
+      "awareness": 70,
+      "audience": "driver"
+    },
+    "screen-operate": {
+      "title": "운전 중 영상표시장치 조작",
+      "summary": "운전 중 내비게이션이나 화면을 조작한 경우. 표시와 별개로 조작도 단속 대상입니다.",
+      "subcategory": "운전 중 행위",
+      "awareness": 76,
+      "audience": "driver"
+    },
+    "window-tint": {
+      "title": "창유리 가시광선 투과율 위반",
+      "summary": "앞면 70%, 운전석 옆면 40% 미만으로 어둡게 선팅한 경우.",
+      "subcategory": "운전 중 행위",
+      "awareness": 86,
+      "audience": "driver"
+    },
+    "unsafe-driving": {
+      "title": "안전운전의무 위반",
+      "summary": "조향·제동장치를 제대로 조작하지 않아 위험을 만든 경우. 포괄 조항입니다.",
+      "subcategory": "운전 중 행위",
+      "awareness": 50,
+      "audience": "driver"
+    },
+    "leave-seat": {
+      "title": "운전석 이탈 시 안전조치 불이행",
+      "summary": "시동을 끄지 않거나 제동장치를 두지 않고 차에서 내린 경우.",
+      "subcategory": "운전 중 행위",
+      "awareness": 80,
+      "audience": "driver"
+    },
+    "passenger-safety": {
+      "title": "동승자 안전조치 위반",
+      "summary": "문을 열어 위험을 만드는 등 동승자 안전조치를 하지 않은 경우.",
+      "subcategory": "운전 중 행위",
+      "awareness": 75,
+      "audience": "driver"
+    },
+    "noise": {
+      "title": "소음 발생 행위",
+      "summary": "급발진, 급가속, 공회전, 반복적인 경적으로 소음을 낸 경우.",
+      "subcategory": "운전 중 행위",
+      "awareness": 75,
+      "audience": "driver"
+    },
+    "road-rage": {
+      "title": "도로에서의 시비·다툼",
+      "summary": "차를 세워 두고 다투어 다른 차의 통행을 막은 경우.",
+      "subcategory": "운전 중 행위",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "illegal-device": {
+      "title": "불법부착장치 차 운전",
+      "summary": "기준에 맞지 않는 등화나 장치를 단 차를 운전한 경우.",
+      "subcategory": "운전 중 행위",
+      "awareness": 65,
+      "audience": "driver"
+    },
+    "disturb-passenger": {
+      "title": "승객 소란행위 방치",
+      "summary": "차 안에서 소란을 피우는 승객을 그대로 두고 운전한 경우.",
+      "subcategory": "운전 중 행위",
+      "awareness": 80,
+      "audience": "driver"
+    },
+    "regional-rule": {
+      "title": "시·도경찰청 지정사항 위반",
+      "summary": "지역별로 따로 정해 공고한 운전자 준수사항을 어긴 경우.",
+      "subcategory": "기타",
+      "awareness": 50,
+      "audience": "driver"
+    },
+    "throw-object-from-car": {
+      "title": "차에서 물건 던지기",
+      "summary": "달리는 차 밖으로 물건을 던진 경우.",
+      "subcategory": "운전 중 행위",
+      "awareness": 70,
+      "audience": "driver"
+    },
+    "throw-object-at-car": {
+      "title": "차에 물건 던지기",
+      "summary": "도로의 차나 사람에게 돌 등을 던지거나 발사한 경우.",
+      "subcategory": "기타",
+      "awareness": 45,
+      "audience": "driver"
+    },
+    "overload-passenger": {
+      "title": "승차 인원 초과",
+      "summary": "정원을 넘겨 태운 경우. 승하차자 추락 방지조치 위반도 포함됩니다.",
+      "subcategory": "적재",
+      "awareness": 45,
+      "audience": "driver"
+    },
+    "overload-cargo": {
+      "title": "적재중량·용량 초과",
+      "summary": "운행상 안전기준을 넘겨 싣고 운전한 경우.",
+      "subcategory": "적재",
+      "awareness": 50,
+      "audience": "driver"
+    },
+    "cargo-securing": {
+      "title": "적재물 추락 방지조치 위반",
+      "summary": "덮개를 씌우거나 묶지 않아 짐이 떨어질 수 있게 둔 경우.",
+      "subcategory": "적재",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "cargo-limit": {
+      "title": "적재 제한 위반",
+      "summary": "적재 기준 위반, 적재물 추락 방지 위반, 영유아·동물을 안고 운전하는 행위.",
+      "subcategory": "적재",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "cargo-bed-passenger": {
+      "title": "화물 적재함 승객 탑승",
+      "summary": "화물칸에 사람을 태우고 운행한 경우.",
+      "subcategory": "적재",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "lights-off": {
+      "title": "등화 점등·조작 불이행",
+      "summary": "밤이나 터널에서 전조등·미등을 켜지 않은 경우.",
+      "subcategory": "운전 중 행위",
+      "awareness": 60,
+      "audience": "driver"
+    },
+    "lights-bicycle": {
+      "title": "야간 등화·발광장치 미착용",
+      "summary": "밤에 자전거등을 탈 때 등화를 켜거나 발광장치를 착용하지 않은 경우.",
+      "subcategory": "자전거·PM",
+      "awareness": 84,
+      "audience": "driver"
+    },
+    "tachograph": {
+      "title": "운행기록계 미설치·미작동 운전",
+      "summary": "운행기록계를 달지 않았거나 작동하지 않는 차를 운전한 경우.",
+      "subcategory": "기타",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "emergency-yield": {
+      "title": "긴급자동차 양보 의무 위반",
+      "summary": "소방차·구급차가 접근할 때 길을 비켜주지 않은 경우.",
+      "subcategory": "통행",
+      "awareness": 40,
+      "audience": "driver"
+    },
+    "emergency-light-misuse": {
+      "title": "경광등·사이렌 부당 사용",
+      "summary": "긴급한 용도가 아닌데 경광등이나 사이렌을 쓴 경우.",
+      "subcategory": "기타",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "highway-shoulder": {
+      "title": "고속도로 갓길 통행",
+      "summary": "고속도로·자동차전용도로의 갓길로 주행한 경우.",
+      "subcategory": "고속도로",
+      "awareness": 30,
+      "audience": "driver"
+    },
+    "highway-bus-lane": {
+      "title": "고속도로 버스전용차로 위반",
+      "summary": "버스전용차로·다인승전용차로를 통행 자격 없이 지나간 경우.",
+      "subcategory": "고속도로",
+      "awareness": 35,
+      "audience": "driver"
+    },
+    "highway-lane": {
+      "title": "고속도로 지정차로 위반",
+      "summary": "차종별로 정해진 차로를 지키지 않고 주행한 경우.",
+      "subcategory": "고속도로",
+      "awareness": 64,
+      "audience": "driver"
+    },
+    "highway-overtake": {
+      "title": "고속도로 앞지르기 방법 위반",
+      "summary": "고속도로에서 정해진 앞지르기 통행방법을 지키지 않은 경우.",
+      "subcategory": "고속도로",
+      "awareness": 70,
+      "audience": "driver"
+    },
+    "highway-safe-distance": {
+      "title": "고속도로 안전거리 미확보",
+      "summary": "고속도로·자동차전용도로에서 앞차와 거리를 두지 않은 경우.",
+      "subcategory": "고속도로",
+      "awareness": 50,
+      "audience": "driver"
+    },
+    "highway-u-turn": {
+      "title": "고속도로 횡단·유턴·후진",
+      "summary": "고속도로에서 유턴하거나 후진한 경우. 출구를 지나쳤을 때 특히 위험합니다.",
+      "subcategory": "고속도로",
+      "awareness": 40,
+      "audience": "driver"
+    },
+    "highway-parking": {
+      "title": "고속도로 정차·주차 금지 위반",
+      "summary": "고속도로·자동차전용도로에 차를 세운 경우.",
+      "subcategory": "고속도로",
+      "awareness": 45,
+      "audience": "driver"
+    },
+    "highway-entry": {
+      "title": "고속도로 진입 위반",
+      "summary": "본선 차량의 통행을 방해하며 진입한 경우.",
+      "subcategory": "고속도로",
+      "awareness": 70,
+      "audience": "driver"
+    },
+    "highway-breakdown": {
+      "title": "고속도로 고장 시 조치 불이행",
+      "summary": "고장으로 멈췄을 때 안전삼각대 설치 등 조치를 하지 않은 경우.",
+      "subcategory": "고속도로",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "highway-rules": {
+      "title": "고속도로 준수사항 위반",
+      "summary": "고속도로등에서 정해진 그 밖의 준수사항을 어긴 경우.",
+      "subcategory": "고속도로",
+      "awareness": 80,
+      "audience": "driver"
+    },
+    "school-bus-duty": {
+      "title": "어린이통학버스 운전자 의무 위반",
+      "summary": "점멸등 작동, 하차 확인 등 통학버스 운전자의 의무를 지키지 않은 경우.",
+      "subcategory": "어린이통학버스",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "school-bus-protect": {
+      "title": "어린이통학버스 특별보호 위반",
+      "summary": "점멸등을 켠 통학버스를 앞지르거나 일시정지하지 않고 지나간 경우.",
+      "subcategory": "어린이통학버스",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "school-bus-seatbelt": {
+      "title": "통학버스 어린이 안전띠 미착용",
+      "summary": "탑승한 어린이·유아에게 안전띠를 매게 하지 않은 경우.",
+      "subcategory": "어린이통학버스",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "school-bus-report": {
+      "title": "어린이통학버스 미신고 운행",
+      "summary": "신고하지 않고 어린이통학버스를 운행한 경우.",
+      "subcategory": "어린이통학버스",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "school-bus-cert": {
+      "title": "통학버스 신고증명서 미비치",
+      "summary": "차 안에 신고증명서를 갖추어 두지 않은 경우.",
+      "subcategory": "어린이통학버스",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "school-bus-requirements": {
+      "title": "통학버스 요건 미충족 운행",
+      "summary": "정해진 요건을 갖추지 않고 통학버스를 운행한 경우.",
+      "subcategory": "어린이통학버스",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "school-bus-record": {
+      "title": "통학버스 안전운행기록 미제출",
+      "summary": "안전운행기록을 제출하지 않은 경우.",
+      "subcategory": "어린이통학버스",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "school-bus-education": {
+      "title": "어린이통학버스 안전교육 미이수",
+      "summary": "운전자·운영자가 정해진 안전교육을 받지 않은 경우.",
+      "subcategory": "어린이통학버스",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "school-bus-education-allow": {
+      "title": "안전교육 미이수자에게 통학버스 운전하게 함",
+      "summary": "교육을 받지 않은 사람에게 운전하게 하거나 동승하게 한 경우.",
+      "subcategory": "어린이통학버스",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "school-bus-lookalike": {
+      "title": "어린이통학버스 유사 도색·표지",
+      "summary": "통학버스가 아닌데 비슷하게 칠하거나 표지를 단 경우.",
+      "subcategory": "어린이통학버스",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "child-pm-guardian": {
+      "title": "어린이에게 개인형 이동장치 운전시킴",
+      "summary": "어린이가 전동킥보드 등을 타게 한 보호자에게 부과됩니다.",
+      "subcategory": "자전거·PM",
+      "awareness": 80,
+      "audience": "driver"
+    },
+    "pm-no-license": {
+      "title": "개인형 이동장치 무면허 운전",
+      "summary": "전동킥보드 등은 원동기 면허 이상이 있어야 탈 수 있습니다.",
+      "subcategory": "자전거·PM",
+      "awareness": 60,
+      "audience": "driver"
+    },
+    "pm-overload": {
+      "title": "개인형 이동장치 승차정원 초과",
+      "summary": "전동킥보드에 둘 이상 타고 운전한 경우.",
+      "subcategory": "자전거·PM",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "bicycle-drunk": {
+      "title": "자전거등 음주운전",
+      "summary": "술에 취한 상태로 자전거나 전동킥보드를 운전한 경우.",
+      "subcategory": "자전거·PM",
+      "awareness": 50,
+      "audience": "driver"
+    },
+    "bicycle-drunk-refuse": {
+      "title": "자전거등 음주측정 불응",
+      "summary": "자전거등 운전자가 경찰의 호흡조사 측정에 응하지 않은 경우.",
+      "subcategory": "자전거·PM",
+      "awareness": 70,
+      "audience": "driver"
+    },
+    "bicycle-drunk-repeat": {
+      "title": "음주 상태 자전거등 운전 (제44조제5항 위반)",
+      "summary": "음주로 인정할 상당한 이유가 있는 사람이 자전거등을 운전한 경우.",
+      "subcategory": "자전거·PM",
+      "awareness": 80,
+      "audience": "driver"
+    },
+    "bicycle-drug": {
+      "title": "약물 등 상태에서 자전거등 운전",
+      "summary": "약물 등의 영향으로 정상 운전이 어려운 상태에서 자전거등을 운전한 경우.",
+      "subcategory": "자전거·PM",
+      "awareness": 80,
+      "audience": "driver"
+    },
+    "bicycle-unsafe": {
+      "title": "운전이 금지된 위험한 자전거등 운전",
+      "summary": "운전이 금지된 상태의 자전거등을 운전한 경우.",
+      "subcategory": "자전거·PM",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "hit-and-run-info": {
+      "title": "인적사항 제공의무 위반",
+      "summary": "주차된 차만 파손하고 연락처를 남기지 않고 간 경우.",
+      "subcategory": "기타",
+      "awareness": 45,
+      "audience": "driver"
+    },
+    "autonomous-duty": {
+      "title": "자율주행차 운전자 준수사항 위반",
+      "summary": "자율주행 중에도 운전자가 지켜야 할 사항을 어긴 경우.",
+      "subcategory": "기타",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "autonomous-education": {
+      "title": "자율주행차 안전교육 미이수",
+      "summary": "자율주행자동차 운전에 필요한 안전교육을 받지 않은 경우.",
+      "subcategory": "면허·교육",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "taxi-refuse": {
+      "title": "택시 합승·승차거부·부당요금",
+      "summary": "장기 정차하며 승객을 골라 태우거나 요금을 더 받은 경우.",
+      "subcategory": "기타",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "bus-refuse": {
+      "title": "사업용 승합차·노면전차 승차 거부",
+      "summary": "정당한 이유 없이 승차를 거부한 경우.",
+      "subcategory": "기타",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "license-renewal": {
+      "title": "운전면허 갱신 기간 경과",
+      "summary": "갱신 기간에 면허를 갱신하지 않은 경우. 기간이 지나면 면허가 정지될 수 있습니다.",
+      "subcategory": "면허·교육",
+      "awareness": 55,
+      "audience": "driver"
+    },
+    "aptitude-test": {
+      "title": "적성검사 미수검",
+      "summary": "정기 또는 수시 적성검사를 받지 않은 경우.",
+      "subcategory": "면허·교육",
+      "awareness": 60,
+      "audience": "driver"
+    },
+    "special-education": {
+      "title": "특별교통안전교육 미이수",
+      "summary": "음주운전 등으로 받아야 하는 특별교통안전교육을 받지 않은 경우.",
+      "subcategory": "면허·교육",
+      "awareness": 70,
+      "audience": "driver"
+    },
+    "emergency-vehicle-education": {
+      "title": "긴급자동차 안전운전 교육 미이수",
+      "summary": "긴급자동차 운전자가 받아야 하는 교육을 받지 않은 경우.",
+      "subcategory": "면허·교육",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "license-return-refuse": {
+      "title": "실효된 면허증 회수 거부·방해",
+      "summary": "경찰관이 효력을 잃은 면허증을 회수하려 할 때 거부하거나 방해한 경우.",
+      "subcategory": "면허·교육",
+      "awareness": 45,
+      "audience": "driver"
+    },
+    "alcohol-device-record": {
+      "title": "음주운전 방지장치 운행기록 미제출 (3일 이내)",
+      "summary": "방지장치 부착 차량의 운행기록 제출·검사를 3일 이내로 늦춘 경우.",
+      "subcategory": "면허·교육",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "alcohol-device-record-long": {
+      "title": "음주운전 방지장치 운행기록 미제출 (3일 초과 150일 이내)",
+      "summary": "3일을 넘길 때마다 10만원씩 가산됩니다.",
+      "subcategory": "면허·교육",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "alcohol-device-record-very-long": {
+      "title": "음주운전 방지장치 운행기록 미제출 (150일 초과)",
+      "summary": "150일을 넘기면 500만원이 부과됩니다.",
+      "subcategory": "면허·교육",
+      "awareness": 60,
+      "audience": "operator"
+    },
+    "academy-instructor-notice": {
+      "title": "학원 강사 인적사항 미게시",
+      "summary": "운전학원이 강사의 인적사항과 교육 과목을 게시하지 않은 경우.",
+      "subcategory": "학원",
+      "awareness": 60,
+      "audience": "academy"
+    },
+    "academy-fee-notice": {
+      "title": "학원 수강료 미게시·초과 징수",
+      "summary": "수강료를 게시하지 않거나 게시한 금액보다 많이 받은 경우.",
+      "subcategory": "학원",
+      "awareness": 60,
+      "audience": "academy"
+    },
+    "academy-refund": {
+      "title": "학원 수강료 반환 조치 미이행",
+      "summary": "교육생 보호를 위한 수강료 반환 조치를 하지 않은 경우.",
+      "subcategory": "학원",
+      "awareness": 60,
+      "audience": "academy"
+    },
+    "academy-close-report": {
+      "title": "학원 휴원·폐원 미신고",
+      "summary": "학원이나 전문학원의 휴원·폐원을 신고하지 않은 경우.",
+      "subcategory": "학원",
+      "awareness": 60,
+      "audience": "academy"
+    },
+    "academy-sign-removal": {
+      "title": "학원 간판 제거 등 거부·방해",
+      "summary": "간판 제거나 게시문 부착을 거부·방해하거나 임의로 훼손한 경우.",
+      "subcategory": "학원",
+      "awareness": 60,
+      "audience": "academy"
+    },
+    "education-center-report": {
+      "title": "교통안전교육기관 정지·폐지 미신고",
+      "summary": "교통안전교육기관 운영의 정지나 폐지를 신고하지 않은 경우.",
+      "subcategory": "학원",
+      "awareness": 60,
+      "audience": "academy"
+    },
+    "special-education-repeat": {
+      "title": "특별교통안전교육 미이수 (재위반자)",
+      "summary": "5년 내 음주운전을 다시 위반해 정지처분을 받은 사람이 교육을 받지 않은 경우. 일반보다 비쌉니다.",
+      "subcategory": "면허·교육",
+      "awareness": 75,
+      "audience": "driver"
+    }
+  },
+  "rows": {
+    "byeolpyo6-1": "signal",
+    "byeolpyo6-1-2": "no-entry",
+    "byeolpyo6-1-3": "child-pm-guardian",
+    "byeolpyo6-1-4": "sidewalk",
+    "byeolpyo6-2-가": "centerline",
+    "byeolpyo6-2-나": "roundabout-method",
+    "byeolpyo6-2-다": "highway-shoulder",
+    "byeolpyo6-2-라": "highway-bus-lane",
+    "byeolpyo6-2-2": "safety-zone",
+    "byeolpyo6-2-3-가": "lane-keeping",
+    "byeolpyo6-2-3-나": "lane-keeping",
+    "byeolpyo6-2-3-다": "lane-change-forbidden",
+    "byeolpyo6-2-3-라": "lane-change-method",
+    "byeolpyo6-2-3-마": "turn-signal",
+    "byeolpyo6-3": "bus-lane-city",
+    "byeolpyo6-4-가": "speed-over-60",
+    "byeolpyo6-4-나": "speed-40-60",
+    "byeolpyo6-4-다": "speed-20-40",
+    "byeolpyo6-4-라": "speed-under-20",
+    "byeolpyo6-4-2-가": "u-turn",
+    "byeolpyo6-4-2-나": "overtake-method",
+    "byeolpyo6-4-2-다": "overtake-forbidden",
+    "byeolpyo6-4-2-라": "highway-u-turn",
+    "byeolpyo6-4-3": "cut-in",
+    "byeolpyo6-4-4-가": "intersection-right-turn",
+    "byeolpyo6-4-4-나": "intersection-left-turn",
+    "byeolpyo6-4-4-다": "intersection-block",
+    "byeolpyo6-4-4-라": "roundabout-entry",
+    "byeolpyo6-4-5-가": "crosswalk-pedestrian",
+    "byeolpyo6-4-5-나": "crosswalk-school-zone",
+    "byeolpyo6-5": "emergency-yield",
+    "byeolpyo6-6": "no-stopping",
+    "byeolpyo6-6-2-가": "no-stopping-sign",
+    "byeolpyo6-6-2-나": "no-stopping",
+    "byeolpyo6-6-3": "lights-off",
+    "byeolpyo6-6-4-가": "overload-passenger",
+    "byeolpyo6-6-4-나": "overload-cargo",
+    "byeolpyo6-6-4-다": "cargo-securing",
+    "byeolpyo6-6-4-라": "unsafe-driving",
+    "byeolpyo6-7": "splash",
+    "byeolpyo6-8": "window-tint",
+    "byeolpyo6-8-2-가": "phone-use",
+    "byeolpyo6-8-2-나": "screen-display",
+    "byeolpyo6-8-2-다": "screen-operate",
+    "byeolpyo6-9-가": "seatbelt-passenger-under13",
+    "byeolpyo6-9-나": "seatbelt-passenger-over13",
+    "byeolpyo6-10": "helmet-passenger",
+    "byeolpyo6-10-2": "helmet-motorcycle",
+    "byeolpyo6-10-3-가": "alcohol-device-record",
+    "byeolpyo6-10-3-나": "alcohol-device-record-long",
+    "byeolpyo6-10-3-다": "alcohol-device-record-very-long",
+    "byeolpyo6-10-4": "school-bus-report",
+    "byeolpyo6-11": "school-bus-cert",
+    "byeolpyo6-11-2": "school-bus-requirements",
+    "byeolpyo6-11-3": "school-bus-seatbelt",
+    "byeolpyo6-11-4": "school-bus-record",
+    "byeolpyo6-11-5": "school-bus-education",
+    "byeolpyo6-11-6": "school-bus-education-allow",
+    "byeolpyo6-11-7": "autonomous-education",
+    "byeolpyo6-11-8": "highway-lane",
+    "byeolpyo6-11-9": "highway-overtake",
+    "byeolpyo6-12": "highway-rules",
+    "byeolpyo6-12-2": "throw-object-from-car",
+    "byeolpyo6-12-3": "emergency-vehicle-education",
+    "byeolpyo6-13": "education-center-report",
+    "byeolpyo6-14": "license-renewal",
+    "byeolpyo6-15": "aptitude-test",
+    "byeolpyo6-16": "academy-instructor-notice",
+    "byeolpyo6-17": "academy-fee-notice",
+    "byeolpyo6-18": "academy-refund",
+    "byeolpyo6-19": "academy-close-report",
+    "byeolpyo6-20": "academy-sign-removal",
+    "byeolpyo7-1": "signal",
+    "byeolpyo7-2-가": "speed-over-60",
+    "byeolpyo7-2-나": "speed-40-60",
+    "byeolpyo7-2-다": "speed-20-40",
+    "byeolpyo7-2-라": "speed-under-20",
+    "byeolpyo7-3-가": "no-stopping",
+    "byeolpyo7-3-나": "no-stopping",
+    "byeolpyo8-1": "speed-over-60",
+    "byeolpyo8-1-2": "school-bus-duty",
+    "byeolpyo8-1-3": "hit-and-run-info",
+    "byeolpyo8-1-4": "pm-no-license",
+    "byeolpyo8-1-5": "bicycle-drug",
+    "byeolpyo8-2": "speed-40-60",
+    "byeolpyo8-3": "disturb-passenger",
+    "byeolpyo8-3-2": "school-bus-protect",
+    "byeolpyo8-3-3": "no-stopping-sign",
+    "byeolpyo8-3-4": "pm-overload",
+    "byeolpyo8-4": "signal",
+    "byeolpyo8-5": "centerline",
+    "byeolpyo8-5-2": "bicycle-crossing-stop",
+    "byeolpyo8-6": "speed-20-40",
+    "byeolpyo8-7": "u-turn",
+    "byeolpyo8-8": "overtake-method",
+    "byeolpyo8-9": "overtake-forbidden",
+    "byeolpyo8-10": "railway-crossing",
+    "byeolpyo8-10-2": "roundabout-method",
+    "byeolpyo8-11": "crosswalk-pedestrian",
+    "byeolpyo8-12": "pedestrian-road",
+    "byeolpyo8-12-2": "emergency-yield",
+    "byeolpyo8-12-3": "emergency-light-misuse",
+    "byeolpyo8-13": "overload-passenger",
+    "byeolpyo8-14": "protect-vulnerable",
+    "byeolpyo8-15": "phone-use",
+    "byeolpyo8-15-2": "screen-display",
+    "byeolpyo8-15-3": "screen-operate",
+    "byeolpyo8-16": "tachograph",
+    "byeolpyo8-19": "highway-shoulder",
+    "byeolpyo8-20": "highway-bus-lane",
+    "byeolpyo8-21": "no-entry",
+    "byeolpyo8-22": "bus-lane-city",
+    "byeolpyo8-22-2": "tram-lane",
+    "byeolpyo8-23": "highway-safe-distance",
+    "byeolpyo8-24": "overtake-block",
+    "byeolpyo8-25": "intersection-method",
+    "byeolpyo8-25-2": "roundabout-entry",
+    "byeolpyo8-26": "intersection-yield",
+    "byeolpyo8-27": "pedestrian-protection",
+    "byeolpyo8-29": "no-stopping",
+    "byeolpyo8-30": "no-parking",
+    "byeolpyo8-31": "parking-method",
+    "byeolpyo8-31-2": "parking-slope",
+    "byeolpyo8-32": "parking-order",
+    "byeolpyo8-33": "cargo-limit",
+    "byeolpyo8-34": "unsafe-driving",
+    "byeolpyo8-35": "road-rage",
+    "byeolpyo8-36": "noise",
+    "byeolpyo8-37": "cargo-bed-passenger",
+    "byeolpyo8-38-2": "helmet-pm",
+    "byeolpyo8-38-3": "autonomous-duty",
+    "byeolpyo8-39": "highway-lane",
+    "byeolpyo8-40": "highway-u-turn",
+    "byeolpyo8-41": "highway-parking",
+    "byeolpyo8-42": "highway-entry",
+    "byeolpyo8-43": "highway-breakdown",
+    "byeolpyo8-44": "congestion",
+    "byeolpyo8-45": "lane-keeping",
+    "byeolpyo8-46": "speed-under-20",
+    "byeolpyo8-47": "lane-change-method",
+    "byeolpyo8-48": "sudden-brake",
+    "byeolpyo8-49": "cut-in",
+    "byeolpyo8-50": "slow-down",
+    "byeolpyo8-51": "stop-required",
+    "byeolpyo8-52": "turn-signal",
+    "byeolpyo8-53": "leave-seat",
+    "byeolpyo8-54": "passenger-safety",
+    "byeolpyo8-55": "regional-rule",
+    "byeolpyo8-56": "seatbelt-driver",
+    "byeolpyo8-57": "helmet-motorcycle",
+    "byeolpyo8-57-2": "lights-bicycle",
+    "byeolpyo8-58": "school-bus-lookalike",
+    "byeolpyo8-59": "speed-minimum",
+    "byeolpyo8-60": "safe-distance-city",
+    "byeolpyo8-61": "lights-off",
+    "byeolpyo8-62": "illegal-device",
+    "byeolpyo8-62-2": "bus-refuse",
+    "byeolpyo8-63": "taxi-refuse",
+    "byeolpyo8-64": "bicycle-unsafe",
+    "byeolpyo8-64-2": "bicycle-drunk",
+    "byeolpyo8-64-3": "bicycle-drunk-refuse",
+    "byeolpyo8-64-4": "bicycle-drunk-repeat",
+    "byeolpyo8-65": "throw-object-at-car",
+    "byeolpyo8-66": "throw-object-from-car",
+    "byeolpyo8-67-가": "special-education-repeat",
+    "byeolpyo8-67-나": "special-education",
+    "byeolpyo8-68": "license-return-refuse",
+    "byeolpyo10-1": "signal",
+    "byeolpyo10-2": "crosswalk-pedestrian",
+    "byeolpyo10-3-가": "speed-over-60",
+    "byeolpyo10-3-나": "speed-40-60",
+    "byeolpyo10-3-다": "speed-20-40",
+    "byeolpyo10-3-라": "speed-under-20",
+    "byeolpyo10-4": "no-entry",
+    "byeolpyo10-5": "pedestrian-protection",
+    "byeolpyo10-6-가": "no-stopping",
+    "byeolpyo10-6-나": "no-stopping",
+    "byeolpyo10-7-가": "no-parking",
+    "byeolpyo10-7-나": "no-parking",
+    "byeolpyo10-8-가": "parking-method",
+    "byeolpyo10-8-나": "parking-method",
+    "byeolpyo10-9-가": "parking-order",
+    "byeolpyo10-9-나": "parking-order"
+  }
+}

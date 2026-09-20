@@ -1,0 +1,31 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+pipeline/out/
+.env
+design/
+
+# Flutter
+app/build/
+app/.dart_tool/
+app/env.json
+app/.flutter-plugins*
+app/android/.gradle/
+app/android/local.properties
+app/ios/Pods/
+app/*.iml
+
+# Firebase
+# 값만 .env 로 옮겨 쓰고 저장소에는 두지 않는다.
+# 서비스 계정 JSON 은 발송 권한이라 특히 새면 안 된다.
+google-services.json
+GoogleService-Info.plist
+*-firebase-adminsdk-*.json
+firebase-service-account*.json
+
+# 릴리즈 서명 (절대 올리지 않는다)
+# 키를 잃어버리면 앱을 영영 업데이트할 수 없다. 저장소가 아니라 따로 백업한다.
+app/android/key.properties
+*.jks
+*.keystore
