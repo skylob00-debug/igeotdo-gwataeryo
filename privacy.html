@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개인정보 처리방침 — 이것도 과태료?</title>
+<meta name="description" content="「이것도 과태료?」 앱의 개인정보 처리방침입니다.">
+<link rel="icon" href="icon.png">
+<style>
+  :root {
+    --paper: #FFFDF9; --card: #fff; --ink: #22242A; --body: #5C606A;
+    --muted: #6B7078; --line: #EFEAE1; --accent: #B4470F; --soft: #FFF1E6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic",
+                 "맑은 고딕", sans-serif;
+    line-height: 1.8; -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 20px 80px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 22px; margin-bottom: 34px; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .brand img { width: 40px; height: 40px; border-radius: 10px; }
+  .brand a { color: var(--accent); font-weight: 700; font-size: 15px; text-decoration: none; }
+  h1 { font-size: 27px; letter-spacing: -0.5px; margin: 0 0 8px; }
+  .date { color: var(--muted); font-size: 13.5px; margin: 0; }
+  .lead {
+    background: var(--soft); border-radius: 14px; padding: 18px 20px;
+    margin: 0 0 34px; font-size: 14.5px; color: #7A3A12;
+  }
+  h2 {
+    font-size: 17px; margin: 38px 0 10px; padding-top: 4px;
+    letter-spacing: -0.3px;
+  }
+  p, li { font-size: 14.5px; color: var(--body); }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  .box {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 16px 18px; margin: 12px 0;
+  }
+  .box p:first-child { margin-top: 0; }
+  .box p:last-child { margin-bottom: 0; }
+  dl { margin: 10px 0; }
+  dt { font-weight: 700; font-size: 14px; color: var(--ink); margin-top: 12px; }
+  dd { margin: 4px 0 0; font-size: 14.5px; color: var(--body); }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; width: 40%; }
+  .fill { background: #FFF3CD; border-radius: 4px; padding: 0 5px; }
+  footer {
+    margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 12.5px;
+  }
+  footer a { color: var(--accent); }
+  @media (max-width: 480px) {
+    .wrap { padding: 32px 16px 60px; }
+    h1 { font-size: 23px; }
+    th, td { display: block; width: auto; }
+    th { border-bottom: none; padding-bottom: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <img src="icon.png" alt="">
+      <a href="./">이것도 과태료?</a>
+    </div>
+    <h1>개인정보 처리방침</h1>
+    <p class="date">시행일: <span class="fill">2026년 __월 __일</span></p>
+  </header>
+
+  <p class="lead">
+    이 앱은 회원가입과 로그인이 없습니다. 이름도, 연락처도, 위치도 받지 않습니다.
+    저장하는 것은 알림을 받겠다고 하신 경우의 <strong>기기 토큰 하나</strong>뿐입니다.
+  </p>
+
+  <h2>1. 수집하는 정보</h2>
+
+  <div class="box">
+    <p><strong>푸시 알림 토큰</strong></p>
+    <p>
+      알림 수신에 동의한 경우에 한해 Firebase Cloud Messaging이 발급하는 기기
+      토큰을 저장합니다. 이 토큰은 법령 개정 알림을 보내는 데에만 쓰이며,
+      개인을 식별하지 않습니다.
+    </p>
+    <table>
+      <tr><th>수집 항목</th><td>FCM 등록 토큰, 운영체제 구분(android/ios)</td></tr>
+      <tr><th>수집 시점</th><td>알림 권한을 허용한 때</td></tr>
+      <tr><th>보유 기간</th><td>앱 삭제 또는 토큰 만료 시까지</td></tr>
+    </table>
+  </div>
+
+  <h2>2. 수집하지 않는 정보</h2>
+  <p>아래 항목은 어떤 경우에도 수집하지 않습니다.</p>
+  <ul>
+    <li>이름, 생년월일, 연락처, 이메일</li>
+    <li>위치 정보</li>
+    <li>연락처 목록, 사진, 파일</li>
+    <li>광고 식별자(ADID/IDFA)를 포함한 기기 식별자</li>
+    <li>차량 정보, 운전면허 정보, 과태료 부과 내역</li>
+  </ul>
+  <p>
+    앱에서 저장(즐겨찾기)한 항목은 이용자의 기기에만 보관되며 서버로 전송되지
+    않습니다. 이 앱에는 개인 과태료 조회 기능이 없습니다.
+  </p>
+
+  <h2>3. 이용 목적</h2>
+  <p>법령 개정 알림 발송. 그 외의 목적으로 이용하지 않습니다.</p>
+
+  <h2>4. 제3자 제공</h2>
+  <p>개인정보를 제3자에게 제공하지 않습니다.</p>
+
+  <h2>5. 처리 위탁</h2>
+  <table>
+    <tr><th>Google LLC</th><td>Firebase Cloud Messaging — 알림 발송</td></tr>
+    <tr><th>Supabase Inc.</th><td>법령 데이터 제공 및 알림 토큰 보관</td></tr>
+  </table>
+
+  <h2>6. 파기</h2>
+  <p>
+    앱을 삭제하면 기기에 저장된 항목이 함께 삭제됩니다. FCM 토큰은 만료 시
+    자동으로 무효화되며, 즉시 삭제를 원하시면 아래 연락처로 요청하실 수 있습니다.
+  </p>
+
+  <h2>7. 이용자의 권리</h2>
+  <p>
+    기기의 <strong>설정 &gt; 알림</strong>에서 이 앱의 알림을 끄면 더 이상 알림을
+    받지 않습니다. 저장된 토큰의 삭제를 원하시면 아래로 연락해 주십시오.
+  </p>
+
+  <h2>8. 안전성 확보 조치</h2>
+  <ul>
+    <li>모든 전송 구간을 HTTPS로 암호화합니다.</li>
+    <li>앱은 법령 데이터를 읽기 전용 권한으로만 조회합니다.</li>
+    <li>알림 발송 권한을 가진 열쇠는 서버에만 두고 앱에 넣지 않습니다.</li>
+  </ul>
+
+  <h2>9. 개인정보 보호책임자</h2>
+  <dl>
+    <dt>성명</dt><dd><span class="fill">______</span></dd>
+    <dt>이메일</dt><dd><span class="fill">______</span></dd>
+  </dl>
+
+  <h2>10. 고지</h2>
+  <p>
+    이 방침이 변경되면 앱 내 공지 또는 이 페이지를 통해 알립니다.
+  </p>
+
+  <footer>
+    이 앱이 제공하는 과태료·범칙금 정보는 참고용이며 법적 효력이 없습니다.
+    정확한 내용은
+    <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a>와
+    관할 기관에서 확인하시기 바랍니다.
+  </footer>
+
+</div>
+</body>
+</html>
